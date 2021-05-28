@@ -7,12 +7,15 @@ import (
 
 // naked return
 
-func lenAndUpper(name string) (int, string) {
-	return len(name), strings.ToUpper(name)
+func lenAndUpper(name string) (lenght int, uppercase string) {
+	defer fmt.Println("I'm done") // defer : after func run
+	lenght = len(name)
+	uppercase = strings.ToUpper(name)
+	return
 }
 
 func main() {
-	totalLenght, _ := lenAndUpper("nico")
-	fmt.Println(totalLenght)
+	totalLenght, up := lenAndUpper("nico")
+	fmt.Println(totalLenght, up)
 
 }
