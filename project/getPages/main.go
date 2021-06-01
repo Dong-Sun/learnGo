@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -23,8 +24,9 @@ func main() {
 	totalPages := getPages()
 
 	for i := 0; i < totalPages; i++ {
-		getPage(i)
+		go getPage(i)
 	}
+	time.Sleep(time.Second * 5)
 }
 
 func getPage(page int) {
